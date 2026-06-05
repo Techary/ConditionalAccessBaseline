@@ -74,7 +74,20 @@
       "excludeRoles@odata.type": "#Collection(String)",
       "excludeRoles": [],
       "includeGuestsOrExternalUsers": null,
-      "excludeGuestsOrExternalUsers": null
+      "excludeGuestsOrExternalUsers": {
+        "@odata.type": "#microsoft.graph.conditionalAccessGuestsOrExternalUsers",
+        "guestOrExternalUserTypes@odata.type": "#microsoft.graph.conditionalAccessGuestOrExternalUserTypes",
+        "guestOrExternalUserTypes": "serviceProvider",
+        "externalTenants": {
+          "@odata.type": "#microsoft.graph.conditionalAccessEnumeratedExternalTenants",
+          "membershipKind@odata.type": "#microsoft.graph.conditionalAccessExternalTenantsMembershipKind",
+          "membershipKind": "enumerated",
+          "members@odata.type": "#Collection(String)",
+          "members": [
+            "c6c875ca-6561-4984-8444-4072baee8b7d"
+          ]
+        }
+      }
     },
     "platforms": {
       "@odata.type": "#microsoft.graph.conditionalAccessPlatforms",
