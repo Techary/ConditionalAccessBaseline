@@ -85,7 +85,7 @@
                                                       ],
                                      "excludeRoles@odata.type":  "#Collection(String)",
                                      "excludeRoles":  [
-                                                          
+
                                                       ],
                                      "includeGuestsOrExternalUsers":  null,
                                      "excludeGuestsOrExternalUsers":  {
