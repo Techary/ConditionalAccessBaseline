@@ -35,7 +35,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#ca002-global-identityprotection-anyapp-anyplatform-block-legacyauthentication)
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
-    - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection](#ca005-global-dataprotection-office365-anyplatform-unmanaged-requireappprotection)
+    - [CA005-Global-DataProtection-Office365-iOSenAndroid-ClientApps-Unmanaged-AppEnforcedRestrictions](#ca005-global-dataprotection-office365-iosenandroid-clientapps-unmanaged-appenforcedrestrictions)
     - [CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection](#ca006-global-dataprotection-office365-iosenandroid-requireappprotection)
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#ca100-admins-identityprotection-adminportals-anyplatform-mfa)
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
@@ -59,8 +59,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
-    - [CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guests-identityprotection-allapps-anyplatform-persistentbrowser)
-    - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
+    - [CA403-GuestUsers-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guestusers-identityprotection-allapps-anyplatform-persistentbrowser)
+    - [CA404-GuestUsers-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guestusers-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent](#ca501-agents-identityprotection-anyapp-anyplatform-block-highriskagent)
     - [CA502-Agents-AttackSurfaceReduction-AllAgentIdentities-AllAgentResources-BLOCK](#ca502-agents-attacksurfacereduction-allagentidentities-allagentresources-block)
     - [CA503-Agents-BaseProtection-AllAgentUsers-AllResources-RequireCompliantDevice](#ca503-agents-baseprotection-allagentusers-allresources-requirecompliantdevice)
@@ -70,8 +70,10 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
   - [Considerations](#considerations)
   - [Troubleshooting](#troubleshooting)
   - [Importing the baseline](#importing-the-baseline)
-    - [Setup IntuneManagement](#setup-intunemanagement)
-    - [Import the configuration](#import-the-configuration)
+    - [Option 1 - ConditionalAccessBaseline Importer](#option-1---conditionalaccessbaseline-importer)
+    - [Option 2 - IntuneManagementTool](#option-2---intunemanagementtool)
+      - [Setup IntuneManagement](#setup-intunemanagement)
+      - [Import the configuration](#import-the-configuration)
 
 
 
@@ -213,9 +215,9 @@ This policy prevents all users from transfering authentication flows from PC to 
 
 ![CA004](./Images/CA004.png)
 
-### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection
+### CA005-Global-DataProtection-Office365-iOSenAndroid-ClientApps-Unmanaged-AppEnforcedRestrictions
 
-This policyrequires App Protection Policies on unmanaged devices.
+This policyrequires App Enforced Restrictions on unmanaged devices.
 
 ![CA005](./Images/CA005.png)
 
@@ -420,13 +422,13 @@ This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all
 
 ![CA402](./Images/CA402.png)
 
-### CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
+### CA403-GuestUsers-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
 
 This policy prevents guest from having persistent browser sessions.
 
 ![CA403](./Images/CA403.png)
 
-### CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
+### CA404-GuestUsers-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
 
 This policy prevents guests from accessing specific apps. In this example i've blocked a random app. You should review the included and excluded apps. Excluding office 365 is not necessary if its not included. This is just an example. 
 
@@ -485,6 +487,26 @@ Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/
 
 ## Importing the baseline
 
+### Option 1 - ConditionalAccessBaseline Importer
+
+
+> [!Note]
+> The tool is intended as a simple, one-time deployment method. After deploying the baseline, consider removing the Enterprise App from your tenant. If you prefer an offline deployment method choose option 2 instead. Please keep in mind that this is a web app and use it on your own risk. 
+
+* **Step 1**: Open the Conditional Access web app: https://conditionalaccess.joeyverlinden.com/.
+* **Step 2**: Click **Deploy Conditional Access Baseline**.
+* **Step 3**: Sign in with an Entra ID account that has sufficient permissions (for example, Conditional Access Administrator). Grant approval for the necessary permissions.
+* **Step 4**: Select the policies you want to deploy. If you are applying updates, select only the updated policies (see changelog). For a new implementation, select all policies.
+* **Step 5**: Click **Deploy Baseline**.
+
+![Importer1](./Images/Importer1.png)
+
+![Importer2](./Images/Importer2.png)
+
+After deployment is completed, all policies are available in the Entra ID Admin Center and Azure portal.
+
+### Option 2 - IntuneManagementTool
+
 These PowerShell scripts are using Microsoft Authentication Library (MSAL), Microsoft Graph APIs and Azure Management APIs to manage objects in Intune and Azure. The scripts has a simple WPF UI and it supports operations like Export, Import, Copy, Download, Compare etc.
 
 This makes it easy to backup or clone a complete Intune environment. The scripts can export and import objects including assignments and support import/export between tenants. The scripts will create a migration table during export and use that for importing assignments in other environments. It will create missing groups in the target environment during import. Group information like name, description and type will be imported based on the exported group e.g. dynamic groups are supported. There will be one json file for each group in the export folder.
@@ -496,7 +518,7 @@ The script also support dependencies e.g. an App Protection is depending on an A
 > [!TIP]
 > The following tool is used: https://github.com/Micke-K/IntuneManagement. Always download the lastest version before importing or exporting data.
 
-### Setup IntuneManagement
+#### Setup IntuneManagement
 
 Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. For example: *C:\Intune\IntuneManagement*.
 
@@ -536,7 +558,7 @@ Go ahead and accept the popup again, this should clear all the red text on the l
 
 Now we can start importing, exporting, or comparing tenant configurations. 
 
-### Import the configuration
+#### Import the configuration
 
 1: Click on **Bulk** -> **Import**
 
