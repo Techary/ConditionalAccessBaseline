@@ -31,7 +31,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
       - [Agents](#agents)
   - [Conditional access policies](#conditional-access-policies)
     - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca000-global-identityprotection-anyapp-anyplatform-mfa)
-    - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#ca001-global-attacksurfacereduction-anyapp-anyplatform-block-countrywhitelist)
+    - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryAllowlist](#ca001-global-attacksurfacereduction-anyapp-anyplatform-block-countryallowlist)
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#ca002-global-identityprotection-anyapp-anyplatform-block-legacyauthentication)
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
@@ -185,7 +185,7 @@ This policy requires MFA for all cloud apps, from every platform. It captures al
 
 ![CA000](./Images/CA000.png)
 
-### CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist
+### CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryAllowlist
 
 This policy blocks all countries, to all cloud apps, from every platform except for the countries configured in the named location **ALLOWED COUNTRIES**. This named location is excluded in this policy.
 
@@ -467,7 +467,7 @@ Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/
 
 | Name | Location type | Assigned to policy |
 | -------- | -------- | -------- |
-| ALLOWED COUNTRIES | Countries (IP) | CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist |
+| ALLOWED COUNTRIES | Countries (IP) | CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryAllowlist |
 | ALLOWED COUNTRIES - SERVICE ACCOUNTS | Countries (IP) | CA301-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUntr|
 
 ## Considerations

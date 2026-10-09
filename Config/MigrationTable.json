@@ -37,7 +37,7 @@
                         "Type":  "Group"
                     },
                     {
-                        "DisplayName":  "CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist - Exclude",
+                        "DisplayName":  "CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryAllowlist - Exclude",
                         "Id":  "6499f521-8620-4f4e-92a1-db47c79362e8",
                         "Type":  "Group"
                     },

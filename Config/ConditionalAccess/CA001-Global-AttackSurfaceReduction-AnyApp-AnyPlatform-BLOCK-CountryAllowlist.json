@@ -5,7 +5,7 @@
     "@odata.editLink":  "identity/conditionalAccess/policies(\u002719bbdbd4-d871-4964-a6ef-9b3054b9337c\u0027)",
     "id":  "19bbdbd4-d871-4964-a6ef-9b3054b9337c",
     "templateId":  null,
-    "displayName":  "CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist",
+    "displayName":  "CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryAllowlist",
     "createdDateTime@odata.type":  "#DateTimeOffset",
     "createdDateTime":  "2024-05-24T09:27:52.7009813Z",
     "modifiedDateTime@odata.type":  "#DateTimeOffset",
